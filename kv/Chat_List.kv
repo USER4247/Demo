@@ -1,0 +1,87 @@
+<Chat_List>:
+    id:Chat_List
+    name:'Chat_List'
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Test App"
+            left_action_items: [["flask-round-bottom-empty",lambda x:x]]
+            elevation: 20
+            
+                
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Chats'
+                icon: 'chat'
+                ScrollView:
+                    MDList:
+                        id:list
+                        
+
+                
+                
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Catagory'
+                icon: 'apps-box'
+                    
+
+                MDLabel:
+                    text: 'select catagory'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: 'settings'
+                icon: 'alien'
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text:'Account'
+                            on_release: app.change_screen("Account")
+                            IconLeftWidget:
+                                icon:'account-box'
+                                on_release: app.change_screen("Account")
+                        OneLineIconListItem:
+                            text:'Theme'
+                            on_press:app.show_theme_picker()
+                            IconLeftWidget:
+                                icon:'format-paint'
+                                on_press:app.show_theme_picker()
+                        OneLineIconListItem:
+                            text:'Blocked Contacts'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'block-helper'
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Report'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'bullhorn'
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Add Friend'
+                            on_release:app.change_screen("Add_Friend")
+                            IconLeftWidget:
+                                icon:'account-multiple-plus'
+                                on_release:app.change_screen("Add_Friend")
+                        OneLineIconListItem:
+                            text:'Create Group'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'account-group'   
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Privacy'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'briefcase-outline' 
+                                on_release:app.comming_soon()   
+                        OneLineIconListItem:
+                            text: "Requests"
+                            on_release: app.change_screen("Request")
+                            IconLeftWidget:
+                                icon:'message-alert' 
+                                on_release: app.change_screen("Request")

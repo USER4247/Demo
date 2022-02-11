@@ -1,0 +1,148 @@
+<Chat_Screen>:
+    id: Chat_Screen
+    name:'Chat_Screen'
+    MDBoxLayout: 
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        MDBoxLayout:
+            id:headbox
+            size_hint_y: None
+            height: 50
+            spacing: 5
+            md_bg_color: app.theme_cls.bg_normal
+            padding: [0, 0, 10, 0]
+            MDIconButton:
+                icon: 'arrow-left'
+                id: back_buttons
+                theme_text_color: 'Custom'
+                text_color: app.theme_cls.opposite_bg_normal
+                user_font_size: 18
+                size_hint: (None, None)
+                pos_hint: {'center_y':.5}
+                size: 30, 30
+                padding: 0
+                pos_hint: {'center_y':.5}
+                on_release: app.change_screen('Chat_List') if back_buttons.icon == 'arrow-left' else msglist.unselected_all()
+                #on_press: app.reset()
+                on_press: app.stop() if back_buttons.icon == 'arrow-left' else msglist.unselected_all()
+            Label:
+                id: name
+                text:root.text
+                theme_text_color: 'Custom'
+                size: self.texture_size
+                size_hint_y: None
+                size_hint_x: None
+                font_size: 15
+                color: app.theme_cls.opposite_bg_normal
+                bold: True
+            MDBoxLayout:
+                size_hint: None, None
+                size: 30, 30
+                orientation: 'vertical'
+                pos_hint: {'center_y': .5}
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: [0, 10, 0, 10]
+                Label:
+                    text: root.text
+                    size: self.texture_size
+                    size_hint_y: None
+                    size_hint_x: None
+                    font_size: 17
+                    color: app.theme_cls.opposite_bg_normal
+                    bold: True
+                MDBoxLayout:
+                    size_hint_x: None
+                    spacing: 5
+                    Label:
+                        size: self.texture_size
+                        size_hint_y: None
+                        size_hint_x: None
+                        font_size: 10
+                        color: app.theme_cls.opposite_bg_normal
+
+            MDBoxLayout:
+                size_hint_x: None
+                spacing: 5
+                #MDIconButton:
+                    #icon: 'video-outline'
+                    #theme_text_color: 'Custom'
+                    #text_color: app.theme_cls.primary_color
+                    #user_font_size: 16
+                    #size_hint: (None, None)
+                    #pos_hint: {'center_y':.5}
+                    #size: 30, 30
+                    #padding: 0
+                    #md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                MDIconButton:
+                    icon: 'camera'
+                    id:LIST
+                    name:'LIST'
+                    theme_text_color: 'Custom'
+                    text_color: app.theme_cls.primary_color
+                    user_font_size: 16
+                    size_hint: (None, None)
+                    pos_hint: {'center_y':.5}
+                    size: 30, 30
+                    padding: 0
+                    md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                    #on_press: app.camera() if LIST.icon =="camera"
+                    #on_press: app.delete_message() if LIST.icon == "trash-bin"
+
+                MDIconButton:
+                    id: dropdown
+                    icon: 'microphone'
+                    theme_text_color: 'Custom'
+                    text_color: app.theme_cls.primary_color
+                    user_font_size: 20
+                    size_hint: (None, None)
+                    pos_hint: {'center_y':.5}
+                    size: 30, 30
+                    padding: 0
+                    md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                    on_press: app.delete_dialog
+                    
+        ScrollView:
+            id:scroll
+            MDSelectionList:  #-----------------------------> changing this to MDList makes everything work right
+                id: msglist
+                spacing: 5
+                padding: [0, 10, 0, 10]
+                on_selected:app.selected(*args)
+                on_unselected: app.unselected(*args)
+                on_selected_mode: app.set_selection_mode(*args)
+            
+        MDBoxLayout:
+            padding: [10, ]
+            spacing: 5
+            size_hint_y:None
+            height: 80
+            md_bg_color: app.theme_cls.bg_normal
+            MDTextField:
+                id: msg
+                size_hint_x: .125
+                max_height: "80dp"
+                mode: "fill"
+                fill_color: 0, 0, 0, .4
+                multiline: True
+            MDIconButton:
+                id: snd
+                size_hint: (None, None)
+                icon: 'send'
+                elevation: 0
+                user_font_size: 16
+                theme_text_color: 'Custom'
+                text_color: [1, 1, 1, 1]
+                md_bg_color: app.theme_cls.accent_color
+                on_press: app.send_message(msg.text) if msg.text!='' else None
+                on_press: app.refresh()
+                canvas.before:
+                    PushMatrix
+                    Rotate:
+                        angle: 45
+                        origin: self.center
+                        canvas.after:
+                            PopMatrix
+
+
+                

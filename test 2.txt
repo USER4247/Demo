@@ -1,0 +1,10 @@
+client: - 2022-01-20 08:35:55.244572 - testing hi
+client: - 2022-01-20 08:37:55.244572 - hi
+you: - 2022-01-28 09:34:28.481864 - testing
+client: - 2022-01-20 08:35:55.244572 - testing hi
+client: - 2022-01-20 08:37:55.244572 - hi
+client: - 2022-01-20 08:35:55.244572 - testing hi
+client: - 2022-01-20 08:37:55.244572 - hi
+you: - 2022-02-04 07:04:20.667147 - long string of message
+you: - 2022-02-04 07:07:53.804111 - string of lessage len is greater than 25 width should be maxed aout at 200 hopefully
+you: - 2022-02-11 00:32:19.113826 - asd

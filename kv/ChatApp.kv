@@ -1,0 +1,179 @@
+<Chat_List>:
+    id:Chat_List
+    name:'Chat_List'
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "TEST kivymd app"
+            left_action_items: [["flask-round-bottom-empty",lambda x:x]]
+            elevation: 20
+                
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Chats'
+                icon: 'chat'
+                ScrollView:
+                    MDList:
+                        id:chatlist
+
+                
+                
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Catagory'
+                icon: 'apps-box'
+                    
+
+                MDLabel:
+                    text: 'select catagory'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: 'settings'
+                icon: 'alien'
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text:'Account'
+                            on_release: app.root.current = "Account" 
+                            IconLeftWidget:
+                                icon:'account-box'
+                                on_release: app.root.current = "Account" 
+                        OneLineIconListItem:
+                            text:'Theme'
+                            on_press:app.show_theme_picker()
+                            IconLeftWidget:
+                                icon:'format-paint'
+                                on_press:app.show_theme_picker()
+                        OneLineIconListItem:
+                            text:'Blocked Contacts'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'block-helper'
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Report'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'bullhorn'
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Add Friend'
+                            on_release:app.root.current='Add_Friend'
+                            IconLeftWidget:
+                                icon:'account-multiple-plus'
+                                on_release:app.root.current='Add_Friend'
+                        OneLineIconListItem:
+                            text:'Create Group'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'account-group'   
+                                on_release:app.comming_soon()
+                        OneLineIconListItem:
+                            text:'Privacy'
+                            on_release:app.comming_soon()
+                            IconLeftWidget:
+                                icon:'briefcase-outline' 
+                                on_release:app.comming_soon()   
+                        OneLineIconListItem:
+                            text:Requests
+                            IconLeftWidget:
+                                icon:'briefcase-outline'
+
+
+<Add_Friend>:
+    BoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Add Friend"
+            MDFloatingActionButton:
+                icon: 'keyboard-backspace'
+                theme_text_color: 'Custom'
+                elevation: 0
+                on_release: app.root.current = 'Chat_List'
+        MDTextField:
+            id: name
+            hint_text: "nickname"
+            mode: "fill"
+            fill_color: 0, 0, 0, .4
+        MDTextField:
+            id: id
+            hint_text: "id"
+            mode: "fill"
+            fill_color: 0, 0, 0, .4
+        MDFillRoundFlatButton:
+            text:"Add"
+            on_press: 
+                app.add_friend(name.text)
+                app.add_friend_button()
+        MDLabel:
+            text: '   '
+            halign: "center"
+                
+
+                
+
+
+                
+
+<Account>:
+    id:Account
+    name:'Account'
+    MDBoxLayout: 
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.opposite_bg_normal
+            user_font_size: 18
+            size_hint: (None, None)
+            pos_hint: {'top':.1}
+            size: 30, 30
+            padding: 0
+            on_release: app.root.current = "Chat_List"
+        MDBoxLayout:
+            spacing:50
+            ImageLeftWidget:                                         # for image ImageLeftWidget:
+                source: "user.png"
+                height:50
+        MDList:
+            ThreeLineIconListItem:
+                text: "Change Profile Picture"
+                secondary_text: " "
+                tertiary_text: " "
+                IconLeftWidget:
+                    icon: "camera-burst"
+            ThreeLineIconListItem:
+                text: "Change Name"
+                secondary_text: " "
+                tertiary_text: " "
+                on_press: app.comming_soon()
+                IconLeftWidget:
+                    icon: "fountain-pen-tip"
+            ThreeLineIconListItem:
+                text: "Delete Account"
+                secondary_text: "  "
+                tertiary_text: " "
+                IconLeftWidget:
+                    icon: "delete-alert"
+
+
+
+        #ScrollView:                                               #this block of code is for message screen but by mistake i created it over here but use it when needed
+            #MDList:
+                #id: msglist                               
+               # spacing: 5
+               # padding: [0, 10, 0, 10]
+        #MDBoxLayout:
+            #padding: [10, ]
+            #spacing: 5
+            #size_hint_y:None
+            #height: 40
+            #md_bg_color: app.theme_cls.bg_normal
+            #MDTextField:
+               # hint_text: "Helper text on focus"
+                #helper_text: "This will disappear when you click off"
+                #helper_text_mode: "on_focus"

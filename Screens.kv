@@ -1,0 +1,13 @@
+#: include kv/Chat_List.kv
+#: include kv/Chat_Screen.kv
+
+GridLayout:
+    cols: 1
+    ScreenManager:
+        id: screen_manager
+        Chat_List:
+            name:"Chat_List"
+            id: Chat_List
+        Chat_Screen:
+            name:"Chat_Screen"
+            id: Chat_Screen

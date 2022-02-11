@@ -1,0 +1,36 @@
+client: - 2022-01-20 08:35:55.244572 - testing hi
+client: - 2022-01-20 08:37:55.244572 - hi
+you: - 2022-02-07 11:10:35.295574 - msg_content.texture_size[0]
+you: - 2022-02-07 11:10:50.937853 - testing a very long string again
+you: - 2022-02-07 11:12:07.621194 - testing a very long string again
+you: - 2022-02-07 11:12:56.958923 - height test
+you: - 2022-02-07 11:14:59.166409 - size hint y none
+you: - 2022-02-07 11:16:36.205314 - testing a very long string again
+you: - 2022-02-07 11:17:00.092204 - lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+you: - 2022-02-10 08:17:59.677115 - new message
+you: - 2022-02-10 10:52:56.347931 - test
+you: - 2022-02-10 10:53:11.150077 - test2
+you: - 2022-02-10 10:58:55.369139 - testing list
+you: - 2022-02-11 00:09:12.716143 - new
+you: - 2022-02-11 00:09:16.681712 - 1
+2
+3
+4
+you: - 2022-02-11 00:09:22.176119 - 1
+2
+3
+4
+5
+you: - 2022-02-11 00:09:34.933474 - 1
+2
+4
+5
+6
+7
+8
+1
+1
+1
+1
+1
+1
